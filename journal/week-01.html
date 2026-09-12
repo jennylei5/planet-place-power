@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Week 01 · Your Name</title>
+<title>Week 01 · Xiangjia Lei</title>
 
 <!-- Note the ../ — this page is inside the journal folder, so it has to
      look one level up to find the stylesheet. -->
@@ -15,7 +15,7 @@
 
 <header class="site-head">
   <div class="wrap">
-    <a class="brand" href="../index.html">Your Name</a>
+    <a class="brand" href="../index.html">Xiangjia Lei</a>
     <nav>
       <a href="../index.html">Home</a>
       <a href="../index.html#journal">Journal</a>
@@ -32,7 +32,7 @@
     <!-- EDIT THIS: a title that says what you found, not what you did.
          "The blocks that were built after the creek was filled" beats
          "Week 1 journal entry". -->
-    <h1>Give this entry a real title</h1>
+    <h1>Population and Night Light Patterns Across Manhattan</h1>
 
     <!-- ============================================================
          The six parts. Every entry in this course has all six.
@@ -42,27 +42,23 @@
 
     <h2>The question</h2>
     <p>
-      One sentence. It must be answerable, and it must have a "where" in it.
-      This week, that is the sentence you wrote in class:
-      at [site], [thing A] and [thing B] go together, because of [mechanism].
+      Where in New York City do higher population density and brighter nighttime lights occur together, and what does this suggest about the relationship between population and urban activity?
     </p>
 
     <h2>The data</h2>
     <p>
-      Which layers you used in the Site Scanner, what years they are from, and
-      who made them. Then the part people skip: what is missing from them, and
-      what each layer is standing in for.
+      The population density and the night lights layers are from Google Earth Engine Apps, using the 2026 layers. The population density layer shows where more people are concentrated across the city, while the night lights layer shows the intensity of artificial light at night. 
     </p>
     <p>
-      Write the proxy sentence here, once per indicator:
-      <em>I am using X to stand for Y, and it might fail because Z.</em>
+      <em>I am using population density to stand for where people live, and it might fail because it does not capture people who are only present in an area temporarily. I am using nighttime light intensity to stand for human activity and development, and it might fail because lights can come from roads, commercial areas, or infrastructure even when few people live there.</em>
     </p>
 
     <h2>The method</h2>
     <p>
-      What you actually did, in enough detail that someone else could repeat
-      it. Which base layer, which overlay, roughly what zoom, and where you set
-      the opacity. If you chose a threshold or a year, say why you chose it.
+      I used the NYC satellite imagery as the base layer and compared it with the population density and night light layers. 
+      I first looked at the population density layer to identify areas with higher concentrations of people, and then compare those areas with the brighter areas in the night light layer.
+      I adjusted the layer opacity to about 50% so that the underlying map and the overlay could both be seen. 
+      I focused on the Manhattan area at a city-scale zoom to compare the spatial patterns of population density and nighttime lights within Manhattan. 
     </p>
 
     <!-- ============================================================
@@ -77,36 +73,37 @@
          --> around the iframe, and paste your address in.
          ============================================================ -->
     <figure>
-      <img src="scanner-01.svg" alt="Describe what the image shows, for someone who cannot see it.">
+      <div style="display: flex; gap: 20px;">
+         <img src="sacnner-01-population density.png" alt="Population density across Manhattan." style="width: 50%;">
+         <img src="scanner-01-night light.png" alt="Nighttime light intensity across Manhattan." style="width: 50%;">
+       </div>
       <!--
       <iframe src="PASTE-YOUR-EMBED-URL-HERE"
               title="Describe your map" loading="lazy"></iframe>
       -->
       <figcaption>
-        A caption that says what to look at. Not "Figure 1" — tell the reader
-        where their eye should go, and what it means.
+        Population density (left) and nighttime light intensity (right) across Manhattan.
       </figcaption>
     </figure>
 
     <h2>What I found</h2>
     <p>
-      Plain language. What does the image actually support? Use at least three
-      of the ten words — pattern, distribution, density, clustering, proximity,
-      adjacency, connectivity, relationship, change, diffusion — and use them
-      correctly.
+      There is a clear pattern that in which areas with higher population density tend to overlap with areas that have brighter night lights. 
+      The distribution of population density is uneven: Manhattan has a high concentration of people compared with surrounding areas, with especially high population density around Central Park. In contrast, night lights are relatively bright across most of Manhattan rather than being concentrated in only some area.
+      The density of both population and nighttime lights is especially high in central and highly urbanized areas, while less densely populated areas generally have weaker nighttime light signals.
     </p>
 
     <h2>What this does not show</h2>
     <div class="limits">
       <p>
-        The honest part. What the image cannot support, what you had to assume,
-        and what would change your mind. Name the extent you chose, and say how
-        the answer would differ if you had zoomed out one step.
+        This comparison does not prove that high population density directly causes brighter nighttime lights.
+        Night lights can also reflect roads, businesses, airports, infrastructure, and other forms of activity. Similarly, population density represents where people are estimated to live, not where they spend their time during the day.<br>
+        For example, some areas on the western side of Manhattan near the waterfront and ports have relatively low population density but still appear quite bright in the night light layer. This suggests that night lights can capture human activity and infrastructure beyond residential population.<br>
+        I also only focused on Manhattan, so the pattern might look different if I zoomed out and included the rest of New York City and surrounding areas.
+        The results also depend on the accuracy and resolution of the two layers. 
       </p>
       <p>
-        <strong>AI use:</strong> AI-assisted for [what], using [which tool].
-        I verified [how]. If you did not use AI, write "No AI tools were used
-        for this entry."
+        <strong>AI use:</strong> No AI tools were used for this entry.
       </p>
     </div>
 
@@ -118,7 +115,7 @@
 
 <footer class="site-foot">
   <div class="wrap wrap-narrow">
-    <p>Your Name · SOCS-SHU 289 · NYU Shanghai · Fall 2026</p>
+    <p>Xiangjia Lei · SOCS-SHU 289 · NYU Shanghai · Fall 2026</p>
   </div>
 </footer>
 
