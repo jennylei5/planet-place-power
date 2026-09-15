@@ -47,13 +47,13 @@
 
     <h2>The data</h2>
     <p>
-      The data is from the layer World Historical Climate - Monthly Averages for GHCN-D Stations for 1981 - 2010, published by Esri from NOAA NCEI data (GHCN-Daily v3.24, Menne et al. 2012). 
+      The data is from the layer <em> World Historical Climate - Monthly Averages for GHCN-D Stations for 1981 - 2010 </em>, published by Esri from NOAA NCEI data (GHCN-Daily v3.24, Menne et al. 2012). 
     </p>
 
     <h2>The method</h2>
     <p>
-      In the World Historical Climate - Monthly Averages for GHCN-D Stations for 1981 - 2010 layer, a filter was first applied using a conditioned group set to "Any of the following are true," containing two expressions joined by OR: GHCN-D ID is CHM00054511 (Beijing's station) and GHCN-D ID is USW00094728 (New York City Central Park station). This retains only these two stations and excludes all others. <br>
-      After filtering, the bar chart was configured with Principle Station Name as the Category field, and the twelve [Month] Mean Prcp mm fields (Jan Mean Prcp mm, Feb Mean Prcp mm, … through Dec Mean Prcp mm) as the numeric fields, with Mean set as the Aggregation. 
+      In the <em> World Historical Climate - Monthly Averages for GHCN-D Stations for 1981 - 2010 </em> layer, a filter was first applied using a conditioned group set to "Any of the following are true," containing two expressions joined by OR: GHCN-D ID is CHM00054511 (Beijing's station) and GHCN-D ID is USW00094728 (New York City Central Park station). This retains only these two stations and excludes all others. <br>
+      After filtering, the bar chart was configured with Principle Station Name as the Category field, and <em> the twelve [Month] Mean Prcp mm fields (Jan Mean Prcp mm, Feb Mean Prcp mm, … through Dec Mean Prcp mm) </em>, and <em> the twelve [Month] Mean Avg. Temp C (Jan Avg. Temp C, Feb Avg. Temp C, … through Dec Avg. Temp C) </em> as the numeric fields, with Mean set as the Aggregation. 
     </p>
 
     <!-- ============================================================
@@ -69,8 +69,7 @@
     <figure>
       <iframe width="700" height="600" allow="local-network-access; geolocation" title="Tutorial 1 · Climate normals · Xiangjia Lei" src="https://nyuds.maps.arcgis.com/apps/mapviewer/index.html?configurableview=true&webmap=490aecc5259947c284f6f39afa46b60e&theme=light&heading=true&legend=true&share=true&scroll=false&basemaps=true&center=-73.93498802063004,40.77240116568787&scale=144447.638572" ></iframe>
       <figcaption>
-        A caption that says what to look at. Not "Figure 1" — tell the reader
-        where their eye should go, and what it means.
+        Location of the two filtered climate stations: New York City Central Park (USW00094728) and Beijing (CHM00054511). Zoom or pan to see their geographic context.
       </figcaption>
     </figure>
 
@@ -78,11 +77,13 @@
        <figcaption>
          New York vs. Beijing: monthly precipitation comparison.
        </figcaption>
-       <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+       <div style="display: flex; gap: 16px;">
          <img src="Average monthly precipitation, New York (1981–2010 normal).png"
-              alt="Bar chart of New York's average monthly precipitation, 1981–2010 normal. Monthly values stay within a narrow range of roughly 79–116 mm, with no clear dry season — precipitation is fairly even across all twelve months.">
+              style="width: 48%; height: auto;"
+              alt="Bar chart of New York's average monthly precipitation, 1981–2010 normal.">
          <img src="Average monthly precipitation, Beijing (1981–2010 normal).png"
-              alt="Bar chart of Beijing's average monthly precipitation, 1981–2010 normal. Precipitation is minimal from November through April (roughly 3–9 mm per month), then surges sharply in summer, peaking near 158 mm in July and 137 mm in August.">
+              style="width: 48%; height: auto;"
+              alt="Bar chart of Beijing's average monthly precipitation, 1981–2010 normal.">
        </div>
      </figure>
 
@@ -90,10 +91,12 @@
        <figcaption>
          New York vs. Beijing: monthly temperature comparison. 
        </figcaption>
-       <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+       <div style="display: flex; gap: 16px;">
          <img src="Average monthly temperature, New York (1981–2010 normal).png"
-              alt="Bar chart of New York's average monthly temperature, 1981–2010 normal. ">
+              style="width: 48%; height: auto;"
+              alt="Bar chart of New York's average monthly temperature, 1981–2010 normal.">
          <img src="Average monthly temperature, Beijing (1981–2010 normal).png"
+              style="width: 48%; height: auto;"
               alt="Bar chart of Beijing's average monthly temperature, 1981–2010 normal.">
        </div>
      </figure>
@@ -102,19 +105,17 @@
     <p>
       New York's monthly precipitation stays in a narrow band roughly between 79mm (February, lowest) and 116mm (July, highest). This presents a max/min ratio of only about 1.5*, meaning no month is dramatically wetter or drier than any other. <br>
       Beijing, by contrast, shows an extreme seasonal concentration, where precipitation is barely present from November through April (roughly 3–9mm per month), then surges sharply from June through August, peaking at ~158mm in July and ~137mm in August. This presents a max/min ratio of roughly 40-50*, nearly 30 times more uneven than New York's. <br>
-      This difference reflects two different climate regimes. New York is consistent with a humid continental climate (Köppen Cfa) that has no dry season, while Beijing shows a classic East Asian summer monsoon signature. So while New York is "evenly wet all year," Beijing is "dry most of the year, then briefly very wet."
+      This difference reflects two different climate regimes. New York has no single dominant seasonal control, which is consistent with a humid continental climate (Köppen Cfa) that has no dry season, while Beijing shows a classic East Asian summer monsoon signature, where the East Asian Summer Monsoon brings moist air from the Pacific/South China Sea into North China almost exclusively in June–August, while the winter months are dominated by dry, cold continental air masses from Siberia/Mongolia that carry little moisture. So while New York is "evenly wet all year," Beijing is "dry most of the year, then briefly very wet."
     </p>
 
     <h2>What this does not show</h2>
     <div class="limits">
       <p>
-        Single-station representation: Each chart represents one station, not the full area, which may create intra-city variation not captured here. <br>
-        Outdated baseline: Both datasets use the 1981–2010 normal, not NOAA/CMA's current 1991–2020 standard. Recent decades may show somewhat different monthly values for either city, but generally the same pattern. 
+        <strong> Single-station representation:</strong> Each chart represents one station, not the full area, which may create intra-city variation not captured here. <br>
+        <strong> Outdated baseline:</strong> Both datasets use the 1981–2010 normal, not NOAA/CMA's current 1991–2020 standard. Recent decades may show somewhat different monthly values for either city, but generally the same pattern. 
       </p>
       <p>
-        <strong>AI use:</strong> AI-assisted for [what], using [which tool].
-        I verified [how]. If you did not use AI, write "No AI tools were used
-        for this entry."
+        <strong>AI use:</strong> AI-assisted image layout and design. 
       </p>
     </div>
 
@@ -126,7 +127,7 @@
 
 <footer class="site-foot">
   <div class="wrap wrap-narrow">
-    <p>Your Name · SOCS-SHU 289 · NYU Shanghai · Fall 2026</p>
+    <p>Xiangjia Lei · SOCS-SHU 289 · NYU Shanghai · Fall 2026</p>
   </div>
 </footer>
 
