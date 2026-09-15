@@ -32,7 +32,7 @@
     <!-- EDIT THIS: a title that says what you found, not what you did.
          "The blocks that were built after the creek was filled" beats
          "Week 1 journal entry". -->
-    <h1>Give this entry a real title</h1>
+    <h1>Same Latitude, Different World: A Comparison of New York and Beijing's Climate</h1>
 
     <!-- ============================================================
          The six parts. Every entry in this course has all six.
@@ -47,18 +47,13 @@
 
     <h2>The data</h2>
     <p>
-      The data is the layer World Historical Climate - Monthly Averages for GHCN-D Stations for 1981 - 2010, published by Esri from NOAA NCEI data (GHCN-Daily v3.24, Menne et al. 2012). 
-    </p>
-    <p>
-      Write the proxy sentence here, once per indicator:
-      <em>I am using X to stand for Y, and it might fail because Z.</em>
+      The data is from the layer World Historical Climate - Monthly Averages for GHCN-D Stations for 1981 - 2010, published by Esri from NOAA NCEI data (GHCN-Daily v3.24, Menne et al. 2012). 
     </p>
 
     <h2>The method</h2>
     <p>
-      What you actually did, in enough detail that someone else could repeat
-      it. Which base layer, which overlay, roughly what zoom, and where you set
-      the opacity. If you chose a threshold or a year, say why you chose it.
+      In the World Historical Climate - Monthly Averages for GHCN-D Stations for 1981 - 2010 layer, a filter was first applied using a conditioned group set to "Any of the following are true," containing two expressions joined by OR: GHCN-D ID is CHM00054511 (Beijing's station) and GHCN-D ID is USW00094728 (New York City Central Park station). This retains only these two stations and excludes all others. <br>
+      After filtering, the bar chart was configured with Principle Station Name as the Category field, and the twelve [Month] Mean Prcp mm fields (Jan Mean Prcp mm, Feb Mean Prcp mm, … through Dec Mean Prcp mm) as the numeric fields, with Mean set as the Aggregation. 
     </p>
 
     <!-- ============================================================
@@ -78,6 +73,30 @@
         where their eye should go, and what it means.
       </figcaption>
     </figure>
+
+    <figure>
+       <figcaption>
+         New York vs. Beijing: monthly precipitation comparison.
+       </figcaption>
+       <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+         <img src="Average monthly precipitation, New York (1981–2010 normal).png"
+              alt="Bar chart of New York's average monthly precipitation, 1981–2010 normal. Monthly values stay within a narrow range of roughly 79–116 mm, with no clear dry season — precipitation is fairly even across all twelve months.">
+         <img src="Average monthly precipitation, Beijing (1981–2010 normal).png"
+              alt="Bar chart of Beijing's average monthly precipitation, 1981–2010 normal. Precipitation is minimal from November through April (roughly 3–9 mm per month), then surges sharply in summer, peaking near 158 mm in July and 137 mm in August.">
+       </div>
+     </figure>
+
+     <figure>
+       <figcaption>
+         New York vs. Beijing: monthly temperature comparison. 
+       </figcaption>
+       <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+         <img src="Average monthly temperature, New York (1981–2010 normal).png"
+              alt="Bar chart of New York's average monthly temperature, 1981–2010 normal. ">
+         <img src="Average monthly temperature, Beijing (1981–2010 normal).png"
+              alt="Bar chart of Beijing's average monthly temperature, 1981–2010 normal.">
+       </div>
+     </figure>
 
     <h2>What I found</h2>
     <p>
