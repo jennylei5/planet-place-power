@@ -47,9 +47,11 @@
 
     <h2>The data</h2>
     <p>
-      Which layers you used in the Site Scanner, what years they are from, and
-      who made them. Then the part people skip: what is missing from them, and
-      what each layer is standing in for.
+      I used Esri’s World Elevation Terrain service and the World Elevation Coverage Map to identify the elevation dataset covering Manhattan. The coverage map shows that Manhattan is covered by a 1 m elevation dataset, USGS_CoNED_TBDEM1m, produced by USGS. This dataset has a stated flight period of 1859–2020, while its LE90 is not stated. The 1 m cell size means that each elevation value represents a 1 m × 1 m area.
+    </p>
+
+    <p>
+      I also used SoilGrids to examine organic carbon density at 5-15 cm. Unlike the elevation layer, SoilGrids is a prediction map rather than a direct map of measurements, and it provides a prediction interval that indicates the uncertainty of the prediction. SoilGrids is published by ISRIC under CC BY 4.0.
     </p>
 
 
@@ -58,23 +60,47 @@
       I added the World Elevation Coverage Map first to identify the highest-resolution elevation dataset available at my site. I then added Terrain — Slope Degrees and Terrain — Slope Map, both derived from the same elevation service.
     </p>
 
-    <!-- ============================================================
-         YOUR EVIDENCE
+    <p>
+      Slope is not directly measured. Instead, the slope layer calculates the steepest gradient from a nine-cell neighborhood: one cell and its eight surrounding cells are used to fit a plane, and the resulting slope is assigned to the central cell. Because the calculation uses a nine-cell window, the resulting slope is dependent on the 1 m cell size.
+    </p>
 
-         WEEK 1: a screenshot from the Site Scanner. Upload it into this
-         journal folder (Add file → Upload files) and change the src
-         below to your filename, for example src="scanner-01.png".
+    <p>
+      The two slope layers use the same underlying values but represent them differently. Slope Degrees uses a continuous color ramp, while Slope Map classifies the values into discrete ranges. I also adjusted the color range and classification breaks in my own rendering so that the relatively small range of slopes in Manhattan was more visible. This changed the visual representation, not the underlying data.
+    </p>
 
-         FROM WEEK 2, once ArcGIS Online is live: publish your web map,
-         choose Share → Embed, delete the <img> line, remove the <!-- and
-     --> 
+    <p>
+      For the soil analysis, I selected organic carbon densoty at depth 5-15 cm and recorded both the predicted value and its uncertainty.
+    </p>
+
     <figure>
-      <iframe width="700" height="600" allow="local-network-access; geolocation" title="Tutorial 1 · Climate normals · JL" src="https://nyuds.maps.arcgis.com/apps/mapviewer/index.html?configurableview=true&webmap=88ae26b354224ebbb058294965c047fc&theme=light&heading=true&legend=true&share=true&scroll=false&basemaps=true&center=15.564086013702687,7.84096290497458&scale=147914381.897889" ></iframe>
+      <iframe width="700" height="600" allow="local-network-access; geolocation" title="Tutorial 2 · Terrain · Xiangjia Lei" src="https://nyuds.maps.arcgis.com/apps/mapviewer/index.html?configurableview=true&webmap=7a4628f1d5264c2f9d0858a1c35acc3a&theme=light&heading=true&legend=true&share=true&scroll=false&basemaps=true&center=-73.9377930730229,40.75286439996089&scale=288895.277144" ></iframe>
       <figcaption>
         A caption that says what to look at. Not "Figure 1" — tell the reader
         where their eye should go, and what it means.
       </figcaption>
     </figure>
+
+    <figure>
+       <img src="terrain-slope degree-classify.png" alt="Terrain - Slope Degrees - Classify">
+       <figcaption>Terrain - Slope Degrees - Classify</figcaption>
+     </figure>
+
+     <figure>
+       <img src="terrain-slope degree-stretch.png" alt="Terrain - Slope Degrees - Stretch">
+       <figcaption>Terrain - Slope Degrees - Stretch</figcaption>
+     </figure>
+
+     <figure>
+       <img src="organic carbon density-view uncertainty layer (5-15).png"
+            alt="SoilGrids organic carbon density at 5–15 cm with the uncertainty layer enabled">
+       <figcaption>SoilGrids organic carbon density (5–15 cm), with the uncertainty layer enabled.</figcaption>
+     </figure>
+
+     <figure>
+       <img src="organic carbon density (5-15).png"
+            alt="SoilGrids organic carbon density at 5–15 cm with the uncertainty layer disabled">
+       <figcaption>SoilGrids organic carbon density (5–15 cm), with the uncertainty layer disabled.</figcaption>
+     </figure>
 
     <h2>What I found</h2>
     <p>
@@ -92,14 +118,10 @@
     <h2>What this does not show</h2>
     <div class="limits">
       <p>
-        The honest part. What the image cannot support, what you had to assume,
-        and what would change your mind. Name the extent you chose, and say how
-        the answer would differ if you had zoomed out one step.
+        The map does not show actual drainage or flood pathways. Slope indicates the steepness of the terrain but not its aspect or exact flow direction. Urban drainage systems, including sewers, drains, walls, pumps, and tide gates, are not represented in the elevation grid. Therefore, this map cannot by itself predict where floodwater will accumulate during a storm.
       </p>
       <p>
-        <strong>AI use:</strong> AI-assisted for [what], using [which tool].
-        I verified [how]. If you did not use AI, write "No AI tools were used
-        for this entry."
+        <strong>AI use:</strong> AI-assisted for identifying relevant background sources, using ChatGPT.
       </p>
     </div>
 
