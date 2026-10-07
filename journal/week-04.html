@@ -32,7 +32,7 @@
     <!-- EDIT THIS: a title that says what you found, not what you did.
          "The blocks that were built after the creek was filled" beats
          "Week 1 journal entry". -->
-    <h1>Give this entry a real title</h1>
+    <h1>What the Green Means in Manhattan</h1>
 
     <!-- ============================================================
          The six parts. Every entry in this course has all six.
@@ -42,16 +42,18 @@
 
     <h2>The question</h2>
     <p>
-      One sentence. It must be answerable, and it must have a "where" in it.
-      This week, that is the sentence you wrote in class:
-      at [site], [thing A] and [thing B] go together, because of [mechanism].
+      What is the green across Manhattan actually made of, and does the pattern of high vegetation-index values at Landsat's 30 m scale track habitat, or only the density of maintained leaf surface?
     </p>
 
     <h2>The data</h2>
     <p>
-      Which layers you used in the Site Scanner, what years they are from, and
-      who made them. Then the part people skip: what is missing from them, and
-      what each layer is standing in for.
+      I took four index readings in Manhattan: Times Square, the Lake in Central Park, Sheep Meadow and the Battery. Three of them come from one Landsat 9 OLI scene, LC09_L1TP_014032_20260512 (path 14, row 32), acquired 12 May 2026, scene cloud cover 0%. The Battery reading comes from Landsat 8, LC08_L1TP_014032_20241021, acquired 21 October 2024, cloud cover 0%, because that was the scene the default mosaic served there.
+    </p>
+    <p>
+      Cell size is 30 m. The index is NDVI, computed as (b5 − b4) / (b5 + b4), where band 4 is red and band 5 is near-infrared, on apparent reflectance.
+    </p>
+    <p>
+      Source: Esri's Multispectral Landsat image service (ArcGIS Living Atlas), credited to Esri, USGS and NASA. It is public and token-free, so a reader without an ArcGIS account can open the same layer.
     </p>
     <p>
       Write the proxy sentence here, once per indicator:
@@ -60,48 +62,58 @@
 
     <h2>The method</h2>
     <p>
-      What you actually did, in enough detail that someone else could repeat
-      it. Which base layer, which overlay, roughly what zoom, and where you set
-      the opacity. If you chose a threshold or a year, say why you chose it.
+      In ArcGIS Map Viewer I switched the layer to the NDVI Raw processing template and clicked four places: Times Square, the Lake in and Sheep Meadow in Central Park, and the Battery Park. From the first page of each pop-up I recorded the pixel value, scene name, date and cloud cover. The map is displayed with NDVI Colorized. 
+    </p>
+    <p>
+      In Landsat Explorer I used the spectral profile tool on one Central Park pixel on two dates. I also used the index mask with a lower threshold of 0.5, a round number of the kind a planning office would choose, so that the mask shows what a "0.5 counts as green" policy would certify.
     </p>
 
-    <!-- ============================================================
-         YOUR EVIDENCE
-
-         WEEK 1: a screenshot from the Site Scanner. Upload it into this
-         journal folder (Add file → Upload files) and change the src
-         below to your filename, for example src="scanner-01.png".
-
-         FROM WEEK 2, once ArcGIS Online is live: publish your web map,
-         choose Share → Embed, delete the <img> line, remove the <!-- and
-     --> 
     <figure>
-      <iframe width="700" height="600" allow="local-network-access; geolocation" title="Tutorial 1 · Climate normals · JL" src="https://nyuds.maps.arcgis.com/apps/mapviewer/index.html?configurableview=true&webmap=88ae26b354224ebbb058294965c047fc&theme=light&heading=true&legend=true&share=true&scroll=false&basemaps=true&center=15.564086013702687,7.84096290497458&scale=147914381.897889" ></iframe>
+       <img src="land scoring 0.5 or more.png"
+            alt="Pixels scoring 0.5 or more on the vegetation index cover Central Park and the suburban lawns of Queens, Long Island and New Jersey, while most of Manhattan and all open water stay dark.">
+       <figcaption>Figure 1. Land scoring 0.5 or more on the vegetation index (NDVI) over New York City, shown in green. Landsat Explorer index mask, 30 m, threshold 0.5. [October 03, 2026, 48% cloudy.]</figcaption>
+     </figure>
+
+     <figure>
+       <img src="NDVI Colorized NYC.png"
+            alt="Straight-edged rectangles of different green across the New York region mark joins between Landsat scenes taken on different dates, not ecological boundaries.">
+       <figcaption>Figure 2. NDVI Colorized over the New York region, ArcGIS Map Viewer, Landsat 30 m. The default mosaic joins scenes from different dates; the straight edges are seams between images, not changes in vegetation.</figcaption>
+     </figure>
+
+    <figure>
+      <iframe width="700" height="600" allow="local-network-access; geolocation" title="Tutorial 3 · Green · Xiangjia Lei" src="https://nyuds.maps.arcgis.com/apps/mapviewer/index.html?configurableview=true&webmap=74c391ba8a7f4498b4774740f2817531&theme=light&heading=true&legend=true&share=true&scroll=false&center=-73.96061533562231,40.744707279785&scale=72223.819286" ></iframe>
       <figcaption>
-        A caption that says what to look at. Not "Figure 1" — tell the reader
-        where their eye should go, and what it means.
+        Interactive map of Manhattan with the Multispectral Landsat layer (NDVI Raw).
       </figcaption>
     </figure>
 
     <h2>What I found</h2>
     <p>
-      Plain language. What does the image actually support? Use at least three
-      of the ten words — pattern, distribution, density, clustering, proximity,
-      adjacency, connectivity, relationship, change, diffusion — and use them
-      correctly.
+      Sheep Meadow in Central Park (approx. 40.772° N, 73.975° W) reads 0.840 on 12 May 2026, the highest value in my sample and close to the index's ceiling. It is a single open, mown and maintained lawn: uniform turf with no shrub layer and no canopy. It lights up under my 0.5 threshold as strongly as anywhere on the island, yet it is not habitat in any meaningful sense. The high score measures how dense and well kept the grass is.
+    </p>
+    <p>
+      Times Square reads 0.061 on the same image. Almost every 30 m cell there is pavement, roof or façade, with only scattered street trees, so the index finds almost no photosynthesising surface. That near-zero value says nothing about what lives there.
+    </p>
+    <p>
+      The Lake, a few hundred metres north of Sheep Meadow, reads −0.224. Water absorbs near-infrared, so the index goes negative. That is correct as measurement, but this open water is where the park's waterfowl feed and rest.
+    </p>
+    <p>
+      The Battery reads 0.312 on an October 2024 image. Its 30 m cells mix lawns, trees, planted beds and paved promenades, and the image is from autumn, so the middle value reflects both the mixture and the season.
+    </p>
+    <p>
+      Manhattan's green is mostly mown lawn and planted trees inside a few managed parks, and the distribution of high values follows maintenance, not habitat.
     </p>
 
     <h2>What this does not show</h2>
     <div class="limits">
       <p>
-        The honest part. What the image cannot support, what you had to assume,
-        and what would change your mind. Name the extent you chose, and say how
-        the answer would differ if you had zoomed out one step.
+        I am using the Landsat vegetation index across Manhattan to stand for how much living habitat is there, and it might fail because it gives Sheep Meadow's mown lawn (0.840) the highest score in my sample while scoring the Lake, open water used by waterfowl, as negative (−0.224).
       </p>
       <p>
-        <strong>AI use:</strong> AI-assisted for [what], using [which tool].
-        I verified [how]. If you did not use AI, write "No AI tools were used
-        for this entry."
+        This map is not evidence that Manhattan's greenest pixels are its most valuable habitat. It is also not one picture of one day.
+      </p>
+      <p>
+        <strong>AI use:</strong> ChatGPT checked the wording of this entry from my own readings, screenshots and notes. 
       </p>
     </div>
 
