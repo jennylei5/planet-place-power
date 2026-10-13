@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Week 01 · Your Name</title>
+<title>Week 05 · Xiangjia Lei</title>
 
 <!-- Note the ../ — this page is inside the journal folder, so it has to
      look one level up to find the stylesheet. -->
@@ -15,7 +15,7 @@
 
 <header class="site-head">
   <div class="wrap">
-    <a class="brand" href="../index.html">Your Name</a>
+    <a class="brand" href="../index.html">Xiangjia Lei</a>
     <nav>
       <a href="../index.html">Home</a>
       <a href="../index.html#journal">Journal</a>
@@ -27,7 +27,7 @@
 <article class="entry">
   <div class="wrap wrap-narrow">
 
-    <p class="kicker">Week 01 · September 2026</p>
+    <p class="kicker">Week 05 · Oct 2026</p>
 
     <!-- EDIT THIS: a title that says what you found, not what you did.
          "The blocks that were built after the creek was filled" beats
@@ -49,54 +49,57 @@
 
     <h2>The data</h2>
     <p>
-      Which layers you used in the Site Scanner, what years they are from, and
-      who made them. Then the part people skip: what is missing from them, and
-      what each layer is standing in for.
+      Catchment: Global Watersheds (M. Heberger, mghydro.com), queried 13 October 2026. The main run used MERIT-Hydro (2021) at Lower precision. I compared it with MERIT-Hydro at Higher precision, HydroSHEDS (2013) and USGS (USA only). Unit: km² upstream of a snapped outlet.
     </p>
     <p>
-      Write the proxy sentence here, once per indicator:
-      <em>I am using X to stand for Y, and it might fail because Z.</em>
+      Index: WRI Aqueduct 4.0 Water Risk, Baseline Annual and Baseline Monthly sublayers, via ArcGIS Living Atlas. CC BY 4.0, credited as “Aqueduct 4.0, World Resources Institute”. The baseline period is 1979–2019 and the data vintage is April 2023, so the figure describes a window that closed seven years ago. Unit: a HydroBASINS level-6 sub-basin, cut along state lines.
     </p>
 
     <h2>The method</h2>
     <p>
-      What you actually did, in enough detail that someone else could repeat
-      it. Which base layer, which overlay, roughly what zoom, and where you set
-      the opacity. If you chose a threshold or a year, say why you chose it.
+      Every run used the same input coordinate, 40.713, -74.004.
+    </p>
+    <p>
+      MERIT-Hydro snapped the outlet to 40.741, -74.008, about 3.1 km north on the Hudson near 14th Street. It returned 2 km² and reported “No river reaches were found.” My site lies outside this polygon. Higher precision returned the same 2 km².
+    </p>
+    <p>
+      HydroSHEDS returned 59 km². Its message gives my own coordinate as the outlet, but the map draws the snapped point near [40.79, -73.93] by the Harlem River, roughly [10 km] away.
+    </p>
+    <p>
+      USGS returned no boundary.
+    </p>
+    <p>
+      Aqueduct places my site in North Atlantic Coast Basin, New York (Pfafstetter 731300). That polygon is 57.93 km², about 580 times my site if the site is taken as 0.1 km². The adjacent polygon, also in New York, is 176.12 km².
     </p>
 
-    <!-- ============================================================
-         YOUR EVIDENCE
-
-         WEEK 1: a screenshot from the Site Scanner. Upload it into this
-         journal folder (Add file → Upload files) and change the src
-         below to your filename, for example src="scanner-01.png".
-
-         FROM WEEK 2, once ArcGIS Online is live: publish your web map,
-         choose Share → Embed, delete the <img> line, remove the <!-- and
-     --> 
     <figure>
-      <iframe width="700" height="600" allow="local-network-access; geolocation" title="Tutorial 1 · Climate normals · JL" src="https://nyuds.maps.arcgis.com/apps/mapviewer/index.html?configurableview=true&webmap=88ae26b354224ebbb058294965c047fc&theme=light&heading=true&legend=true&share=true&scroll=false&basemaps=true&center=15.564086013702687,7.84096290497458&scale=147914381.897889" ></iframe>
+      <iframe width="600" height="500" src="https://mghydro.com/app/shared/DE4E90"></iframe>
       <figcaption>
-        A caption that says what to look at. Not "Figure 1" — tell the reader
-        where their eye should go, and what it means.
+        Catchment delineated to the snapped outlet (40.741, -74.008): 2 km², MERIT-Hydro (2021), Lower precision. Global Watersheds, mghydro.com, queried 13 Oct 2026.
       </figcaption>
+    </figure>
+
+    <figure>
+      <iframe width="700" height="600" allow="local-network-access; geolocation" title="Tutorial 4 · Water · Xiangjia Lei" src="https://nyuds.maps.arcgis.com/apps/mapviewer/index.html?configurableview=true&webmap=4aafcbe6f3624ef0a3cbf459cfb30e77&theme=light&heading=true&legend=true&information=true&share=true&scroll=false&center=-73.92929583486334,40.72041174222537&scale=288895.277144" ></iframe>
+      <figcaption>
+        Baseline water stress by polygon, WRI Aqueduct 4.0, Baseline Annual sublayer (CC BY 4.0), baseline period 1979–2019, via ArcGIS Living Atlas, accessed 13 Oct 2026.
     </figure>
 
     <h2>What I found</h2>
     <p>
-      Plain language. What does the image actually support? Use at least three
-      of the ten words — pattern, distribution, density, clustering, proximity,
-      adjacency, connectivity, relationship, change, diffusion — and use them
-      correctly.
+      Wastewater from my block crosses the divide. MERIT sends rain west to the Hudson, but the sewer sends it east. Lower Manhattan’s combined sewers converge at the Thirteenth Street Pumping Station on Avenue D. From there the flow is pumped under the East River to the Newtown Creek plant in Brooklyn (source: NYC DEP).
+    </p>
+    <p>
+      The three delineations did not agree: 2 km², 59 km², and nothing, a spread of about 30×. The datasets are not disagreeing about a ridge. They disagree about which water body I meant: MERIT chose the Hudson, and HydroSHEDS chose the Harlem River. HydroSHEDS’s polygon runs from the Battery into the Bronx, straight across the Harlem River. On flat, engineered, coastal ground, the dataset decides the answer.
+    </p>
+    <p>
+      The index barely moves. Annual stress is 0.06. Monthly values range from 0.030 in April to 0.088 in October, a factor of 2.9, but never cross the 0.1 class boundary, so the annual figure hides nothing here. The adjacent polygon reads 0.03, so the line between the two polygons is a hydrological boundary rather than an administrative cut.
     </p>
 
     <h2>What this does not show</h2>
     <div class="limits">
       <p>
-        The honest part. What the image cannot support, what you had to assume,
-        and what would change your mind. Name the extent you chose, and say how
-        the answer would differ if you had zoomed out one step.
+        I am using Aqueduct’s baseline water stress for my basin to stand for whether water at my site is in short supply. It might fail because the number describes the small coastal basin around Manhattan, but my tap water does not come from that basin. It arrives by tunnel from reservoirs more than 100 km upstate. A “Low” reading here says nothing about whether those distant reservoirs are under pressure.
       </p>
       <p>
         <strong>AI use:</strong> AI-assisted for [what], using [which tool].
@@ -113,7 +116,7 @@
 
 <footer class="site-foot">
   <div class="wrap wrap-narrow">
-    <p>Your Name · SOCS-SHU 289 · NYU Shanghai · Fall 2026</p>
+    <p>Xiangjia Lei · SOCS-SHU 289 · NYU Shanghai · Fall 2026</p>
   </div>
 </footer>
 
