@@ -42,15 +42,15 @@
 
     <h2>The question</h2>
     <p>
-      When it rains on my block in Lower Manhattan, where does the water actually go: downhill to the nearest river, or into a pipe? And the water in my tap, where does that come from? I’m starting to suspect that proximity to a river tells me almost nothing here. The connectivity that matters might be underground, and the adjacency a watershed map shows might not be the one that counts.
+      Where does the water in Lower Manhattan come from, where does the rain go after it hits the ground, and who else depends on the same water? A watershed map answers these through connectivity (what drains to where) and adjacency (which side of a divide I am on).
     </p>
 
     <h2>The data</h2>
     <p>
-      Catchment: Global Watersheds (M. Heberger, mghydro.com), queried 13 October 2026. The main run used MERIT-Hydro (2021) at Lower precision. I compared it with MERIT-Hydro at Higher precision, HydroSHEDS (2013) and USGS (USA only). Unit: km² upstream of a snapped outlet.
+      <strong>Catchment:</strong> Global Watersheds (M. Heberger, mghydro.com), queried 13 October 2026. The main run used MERIT-Hydro (2021) at Lower precision. I compared it with MERIT-Hydro at Higher precision, HydroSHEDS (2013) and USGS (USA only). Unit: km² upstream of a snapped outlet.
     </p>
     <p>
-      Index: WRI Aqueduct 4.0 Water Risk, Baseline Annual and Baseline Monthly sublayers, via ArcGIS Living Atlas. CC BY 4.0, credited as “Aqueduct 4.0, World Resources Institute”. The baseline period is 1979–2019 and the data vintage is April 2023, so the figure describes a window that closed seven years ago. Unit: a HydroBASINS level-6 sub-basin, cut along state lines.
+      <strong>Index:</strong> WRI Aqueduct 4.0 Water Risk, Baseline Annual and Baseline Monthly sublayers, via ArcGIS Living Atlas. CC BY 4.0, credited as “Aqueduct 4.0, World Resources Institute”. The baseline period is 1979–2019 and the data vintage is April 2023, so the figure describes a window that closed seven years ago. Unit: a HydroBASINS level-6 sub-basin, cut along state lines.
     </p>
 
     <h2>The method</h2>
@@ -85,13 +85,13 @@
 
     <h2>What I found</h2>
     <p>
-      Wastewater from my block crosses the divide. MERIT sends rain west to the Hudson, but the sewer sends it east. Lower Manhattan’s combined sewers converge at the Thirteenth Street Pumping Station on Avenue D. From there the flow is pumped under the East River to the Newtown Creek plant in Brooklyn (source: NYC DEP).
+      Wastewater from my block crosses the divide. According to MERIT-Hydro, rain on my block flows west to the Hudson. The sewer sends it east instead. Lower Manhattan’s combined sewers collect at the Thirteenth Street Pumping Station on Avenue D, and from there the water is pumped under the East River to the Newtown Creek treatment plant in Brooklyn (source: NYC DEP). The watershed map has no way of showing this, because it only knows the shape of the ground, not the pipes beneath it.
     </p>
     <p>
-      The three delineations did not agree: 2 km², 59 km², and nothing, a spread of about 30×. The datasets are not disagreeing about a ridge. They disagree about which water body I meant: MERIT chose the Hudson, and HydroSHEDS chose the Harlem River. HydroSHEDS’s polygon runs from the Battery into the Bronx, straight across the Harlem River. On flat, engineered, coastal ground, the dataset decides the answer.
+      The three delineations did not agree. From the same point I got 2 km² (MERIT-Hydro), 59 km² (HydroSHEDS), and no result at all (USGS), a difference of about 30 times. The datasets were not arguing about where a ridge is. They chose different rivers. MERIT sent my water a few streets west to the Hudson. HydroSHEDS sent it about [10 km] north to the Harlem River, and drew a long, thin catchment from the Battery up into the Bronx, as if rain at the tip of Manhattan travels the length of the island before reaching water. Manhattan is so flat and built-over that small errors in elevation are enough to change the answer. In hilly cities like Prague, the datasets agree. Here, the choice of dataset decides the result.
     </p>
     <p>
-      The index barely moves. Annual stress is 0.06. Monthly values range from 0.030 in April to 0.088 in October, a factor of 2.9, but never cross the 0.1 class boundary, so the annual figure hides nothing here. The adjacent polygon reads 0.03, so the line between the two polygons is a hydrological boundary rather than an administrative cut.
+      The water stress index barely changes. My basin’s annual figure is 0.06 (Low). Month by month it ranges from 0.030 in April to 0.088 in October, about three times higher at its peak, but it never rises above 0.1, so the annual “Low” label is honest for every month. The neighbouring polygon reads 0.03, so the two belong to different sub-basins rather than being one basin split by a border.
     </p>
 
     <h2>What this does not show</h2>
@@ -100,9 +100,7 @@
         I am using Aqueduct’s baseline water stress for my basin to stand for whether water at my site is in short supply. It might fail because the number describes the small coastal basin around Manhattan, but my tap water does not come from that basin. It arrives by tunnel from reservoirs more than 100 km upstate. A “Low” reading here says nothing about whether those distant reservoirs are under pressure.
       </p>
       <p>
-        <strong>AI use:</strong> AI-assisted for [what], using [which tool].
-        I verified [how]. If you did not use AI, write "No AI tools were used
-        for this entry."
+        <strong>AI use:</strong> ChatGPT checked the wording of this entry from my own readings, screenshots and notes. 
       </p>
     </div>
 
