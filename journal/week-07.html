@@ -32,7 +32,7 @@
     <!-- EDIT THIS: a title that says what you found, not what you did.
          "The blocks that were built after the creek was filled" beats
          "Week 1 journal entry". -->
-    <h1>Red on Both Sides of the Line</h1>
+    <h1>Joining Trade Data to the World Map</h1>
 
     <!-- ============================================================
          The six parts. Every entry in this course has all six.
@@ -47,7 +47,7 @@
 
     <h2>The data</h2>
     <p>
-      <strong>Table.</strong> The Growth Lab at Harvard University, Atlas of Economic Complexity v24.4.1. United States, exports by destination, 2024, HS92, current US dollars, gross value. Goods data come from UN Comtrade (last retrieved 15/12/2025) and are reconciled from exporter and importer reports by the Growth Lab. It is a modelled estimate, not raw customs records. The file has 221 rows. Licence: there is no named licence, only a prose grant that encourages reuse and adaptation, “provided that users cite the Atlas and underlying data sources appropriately.”
+      <strong>Table.</strong> The Growth Lab at Harvard University, Atlas of Economic Complexity v24.4.1. United States, exports by destination, 2024, HS92, current US dollars, gross value. Goods data come from UN Comtrade (last retrieved 15/12/2025) and are reconciled from exporter and importer reports by the Growth Lab. It is a modelled estimate, not raw customs records. The file has 221 rows. 
     </p>
     <p>
       <strong>Boundaries.</strong> Natural Earth, Admin 0 – Countries, 1:110m, v5.1.1, 177 polygons, 168 attributes.
@@ -66,9 +66,6 @@
     <p>
       Seven have no row at all. The United States itself; Puerto Rico, which is inside the US customs territory, so shipments there are not exports; Antarctica; Western Sahara; and Kosovo, Somaliland and Northern Cyprus. Those last three have -99 in both ISO_A3 and ISO_A3_EH, because no ISO 3166 code exists for them.
     </p>
-    <p>
-      Table rows with no polygon: 221 − 164 = 57. The largest are Singapore ($46.0B) and Hong Kong ($27.9B). Both have ISO codes, but neither has a polygon at 1:110m. The identifier exists; the shape does not. Joining on ISO_A3_EH would recover the six name failures, but not these.
-    </p>
 
     <h2>The evidence</h2>
 
@@ -80,29 +77,32 @@
               (services excluded). Four classes, natural breaks, from $1.5M to $333.9B (Mexico).
               The United States is unshaded because it is the exporter, not a destination.</p>
               <p>Orange points: three Gulf Coast refineries (Motiva Port Arthur TX, ExxonMobil
-              Baytown TX, Marathon Garyville LA) standing for refined petroleum ($116B), the
-              largest classified goods export; coordinates are approximate and were checked
-              against the basemap.</p>
+              Baytown TX, Marathon Garyville LA) standing for refined petroleum ($116B). </p>
               <p>Sources: Growth Lab, <em>Atlas of Economic Complexity</em> v24.4.1 (UN Comtrade);
               Natural Earth Admin 0 – Countries 1:110m v5.1.1 (public domain).
-              Join: Natural Earth <code>ADMIN</code> = Atlas <code>country</code> (left join).
-              13 polygons have no value; 57 table rows, including Singapore and Hong Kong,
-              have no polygon and do not appear.</p>
+              Join: Natural Earth <code>ADMIN</code> = Atlas <code>country</code> (left join).</p>
      </figcaption>
     </figure>
     
     <h2>What I found</h2>
     <p>
-      <strong>A connection that holds.</strong> The largest US export is business services ($403B), but my choropleth shows goods only, so for the points I used the largest classified good: refined petroleum ($116B), with crude just behind ($115B). It traces to a physical opportunity: Permian crude, plus a deep-water Gulf coast where refineries sit directly on shipping channels. All three points lie within about 420 km of coastline.
+      <strong>A connection that holds.</strong> The largest US export is business services ($403B), but my choropleth shows goods only, so for the points I used the largest classified good: refined petroleum ($116B), with crude almost tied at $115B. This traces to a physical opportunity. The Permian Basin supplies the crude, and a deep-water Gulf coast lets refineries sit directly on shipping channels, so production and export happen in the same place. All three refineries lie within about 420 km of one coastline, in a country of roughly 9.8 million km².
     </p>
     <p>
-      <strong>A connection that breaks.</strong> By product the US exported $3.2T; by destination only $2T. The gap is services: business $403B, insurance and finance $223B, travel $214B, unspecified $211B, transport $102B. That is about $1.15T, over a third of everything the US sells, and none of it traces to the ground. Another $197B of goods is “commodities not specified”, larger than any classified good and impossible to place. The basket has a physical story only in its minority. The distribution of goods exports is also mostly a map of proximity: Mexico ($334B) and Canada ($329B) together take a third.
+      <strong>A connection that breaks.</strong> By product the US exported $3.2T; by destination only $2T. The $1.2T gap is mostly services: business $403B, insurance and finance $223B, travel $214B, unspecified $211B, transport $102B, together about $1.15T, more than a third of everything the US sells. None of it comes out of the ground. Another $197B of goods is “commodities not specified”, larger than any classified product and impossible to trace to any place. The US basket has a physical story only in its minority, which is exactly what Thursday predicted: the more developed the economy, the weaker the link between what the ground gives and what the country sells.
+    </p>
+    <p>
+      <strong>What the map says about distribution.</strong> The goods that do have destinations are concentrated by proximity, not by distance or need: Mexico ($334B) and Canada ($329B) take a third of the total, and the rest of the darkest class is China ($142B). A choropleth of a total mostly redraws neighbours and large economies.
     </p>
 
     <h2>What this does not show</h2>
     <div class="limits">
       <p>
-        I am using Sentinel-2 10 m land cover classes to stand for how land in Central Park and on Randalls Island is used, and it might fail because the class definitions put parks, yards and groves into Built Area, so a lawn, a tent and a building can be the same red pixel. Built +0.5% is also not evidence of construction: the panel subtracts two inventories over one window, so opposite changes cancel. Nothing here shows who uses these fields or who was moved.
+        Gross, not value added: A component that crosses the US–Mexico border several times is counted each time, which might inflate Mexico ($334B) and Canada ($329B) relative to what they actually consume.
+      <p>
+      <p>
+        Nothing about who is paid: The statistic says nothing about wages, ownership, or where the profit lands.
+      </p>
       <p>
         <strong>AI use:</strong> ChatGPT checked the wording of this entry from my own readings, screenshots and notes. 
       </p>
