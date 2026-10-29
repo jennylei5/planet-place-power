@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Week 07 · Xiangjia Lei</title>
+
+<!-- Note the ../ — this page is inside the journal folder, so it has to
+     look one level up to find the stylesheet. -->
+<link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Xiangjia Lei</a>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="../index.html#journal">Journal</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<article class="entry">
+  <div class="wrap wrap-narrow">
+
+    <p class="kicker">Week 07 · Oct 2026</p>
+
+    <!-- EDIT THIS: a title that says what you found, not what you did.
+         "The blocks that were built after the creek was filled" beats
+         "Week 1 journal entry". -->
+    <h1>Red on Both Sides of the Line</h1>
+
+    <!-- ============================================================
+         The six parts. Every entry in this course has all six.
+         Do not delete a heading — if a section is thin, that is
+         information too.
+         ============================================================ -->
+
+    <h2>The question</h2>
+    <p>
+      What does the United States actually sell, where does it go, and does any of it trace back to that ground?
+    </p>
+
+    <h2>The data</h2>
+    <p>
+      <strong>Table.</strong> The Growth Lab at Harvard University, Atlas of Economic Complexity v24.4.1. United States, exports by destination, 2024, HS92, current US dollars, gross value. Goods data come from UN Comtrade (last retrieved 15/12/2025) and are reconciled from exporter and importer reports by the Growth Lab. It is a modelled estimate, not raw customs records. The file has 221 rows. Licence: there is no named licence, only a prose grant that encourages reuse and adaptation, “provided that users cite the Atlas and underlying data sources appropriately.”
+    </p>
+    <p>
+      <strong>Boundaries.</strong> Natural Earth, Admin 0 – Countries, 1:110m, v5.1.1, 177 polygons, 168 attributes.
+    </p>
+      
+    <h2>The method</h2>
+    <p>
+      I built a joined view layer in ArcGIS Online, which consumes no credits. Relationship one-to-one, left join, so that unmatched countries stay visible. Target field: ADMIN (Natural Earth). Join field: country (Atlas). This is a join on names, not codes.
+    </p>
+    <p>
+      Polygons with no value: 13 of 177. 
+    </p>
+    <p>
+      Six are join failures. The data exist under a different spelling: Turkey/Turkiye, Ivory Coast/Côte d’Ivoire, United Republic of Tanzania/Tanzania, Republic of Serbia/Serbia, East Timor/Timor-Leste, Gambia/The Gambia.
+    </p>
+    <p>
+      Seven have no row at all. The United States itself; Puerto Rico, which is inside the US customs territory, so shipments there are not exports; Antarctica; Western Sahara; and Kosovo, Somaliland and Northern Cyprus. Those last three have -99 in both ISO_A3 and ISO_A3_EH, because no ISO 3166 code exists for them.
+    </p>
+    <p>
+      Table rows with no polygon: 221 − 164 = 57. The largest are Singapore ($46.0B) and Hong Kong ($27.9B). Both have ISO codes, but neither has a polygon at 1:110m. The identifier exists; the shape does not. Joining on ISO_A3_EH would recover the six name failures, but not these.
+    </p>
+
+    <h2>The evidence</h2>
+
+    
+    
+    <h2>What I found</h2>
+    <p>
+      <strong>A connection that holds.</strong> The largest US export is business services ($403B), but my choropleth shows goods only, so for the points I used the largest classified good: refined petroleum ($116B), with crude just behind ($115B). It traces to a physical opportunity: Permian crude, plus a deep-water Gulf coast where refineries sit directly on shipping channels. All three points lie within about 420 km of coastline.
+    </p>
+    <p>
+      <strong>A connection that breaks.</strong> By product the US exported $3.2T; by destination only $2T. The gap is services: business $403B, insurance and finance $223B, travel $214B, unspecified $211B, transport $102B. That is about $1.15T, over a third of everything the US sells, and none of it traces to the ground. Another $197B of goods is “commodities not specified”, larger than any classified good and impossible to place. The basket has a physical story only in its minority. The distribution of goods exports is also mostly a map of proximity: Mexico ($334B) and Canada ($329B) together take a third.
+    </p>
+
+    <h2>What this does not show</h2>
+    <div class="limits">
+      <p>
+        I am using Sentinel-2 10 m land cover classes to stand for how land in Central Park and on Randalls Island is used, and it might fail because the class definitions put parks, yards and groves into Built Area, so a lawn, a tent and a building can be the same red pixel. Built +0.5% is also not evidence of construction: the panel subtracts two inventories over one window, so opposite changes cancel. Nothing here shows who uses these fields or who was moved.
+      <p>
+        <strong>AI use:</strong> ChatGPT checked the wording of this entry from my own readings, screenshots and notes. 
+      </p>
+    </div>
+
+    <a class="back" href="../index.html#journal">← Back to all entries</a>
+
+  </div>
+</article>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap wrap-narrow">
+    <p>Xiangjia Lei · SOCS-SHU 289 · NYU Shanghai · Fall 2026</p>
+  </div>
+</footer>
+
+</body>
+</html>
